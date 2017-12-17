@@ -43,12 +43,30 @@ set showmatch           " highlight matching [{()}]
 set cursorline          " highlights the current line
 set wildmenu            " provides graphical menu of autocomplete matches for commands
 
+" Auto commands
+" -----------------------
+augroup configgroup
+    autocmd!
+    autocmd BufEnter Makefile setlocal noexpandtab
+    "au! BufRead,BufNewFile *.markdown set filetype=mkd
+    "au! BufRead,BufNewFile *.md       set filetype=mkd
+    autocmd FileType markdown,mkd call pencil#init()
+    "autocmd FileType markdown setlocal textwidth=100
+    "autocmd FileType markdown setlocal wrapmargin=0  " textwidth overrides wrapmargin anyway
+    "autocmd FileType markdown setlocal wrap         "word wrap visually (don't affect buffer)
+    "autocmd FileType markdown setlocal linebreak    "only wrap on word-break chars
+    " autocmd FileType markdown setlocal nonumber
+augroup END
+
 " Plugin settings
 " -----------------------
 set laststatus=2        " correct display of LightLine status bar
 set noshowmode          " --INSERT-- unnecessary since LightLine displays mode
 set signcolumn=yes      " always display gitgutter column (prevents weird mvmt)
 set updatetime=250      " Shorten to 250msec from default 4 sec (for gitgutter)
+
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+let g:pencil#textwidth = 100
 
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 let NERDTreeShowHidden=1 " Show hidden files
