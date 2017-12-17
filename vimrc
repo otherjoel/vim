@@ -6,7 +6,7 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax on
 set guifont=IBM\ Plex\ Mono\ Light:h16
-colorscheme candy
+colorscheme onedark
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
