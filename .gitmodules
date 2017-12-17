@@ -1,0 +1,9 @@
+[submodule "/Users/joel/.vim/bundle/lightline"]
+	path = /Users/joel/.vim/bundle/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "/Users/joel/.vim/bundle/gitgutter"]
+	path = /Users/joel/.vim/bundle/gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "/Users/joel/.vim/bundle/vim-racket"]
+	path = /Users/joel/.vim/bundle/vim-racket
+	url = https://github.com/wlangstroth/vim-racket.git
