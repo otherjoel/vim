@@ -24,6 +24,9 @@ map <leader>s :source ~/.vimrc<CR>
 " Shortcut to remove search highlights
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Shortcut to open file tree
+nmap <leader>n :NERDTreeToggle<CR>
+
 set hidden
 set history=100
 set nowrap
@@ -46,3 +49,6 @@ set laststatus=2        " correct display of LightLine status bar
 set noshowmode          " --INSERT-- unnecessary since LightLine displays mode
 set signcolumn=yes      " always display gitgutter column (prevents weird mvmt)
 set updatetime=250      " Shorten to 250msec from default 4 sec (for gitgutter)
+
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+let NERDTreeShowHidden=1 " Show hidden files

@@ -7,3 +7,6 @@
 [submodule "/Users/joel/.vim/bundle/vim-racket"]
 	path = /Users/joel/.vim/bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git

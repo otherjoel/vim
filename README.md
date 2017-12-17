@@ -25,6 +25,7 @@ In making my `vimrc` I consulted these sources:
     $ git submodule add git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/gitgutter
     $ git submodule add https://github.com/itchyny/lightline.vim.git ~/.vim/bundle/lightline
     $ git submodule add https://github.com/wlangstroth/vim-racket.git ~/.vim/bundle/vim-racket
+    $ git submodule add https://github.com/screwloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 ### Plugins to  consider:
 
