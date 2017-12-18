@@ -1,3 +1,31 @@
+"g:my_vim_dir is used elsewhere in my vim configurations
+let g:my_vim_dir=expand("$HOME/.vim")
+
+"$HOME/.vim and $HOME/.vim/after are in the &rtp on unix
+"But on windows, they need to be added.
+if has("win16") || has("win32") || has("win64")
+  "add g:my_vim_dir to the front of the runtimepath
+   execute "set rtp^=".g:my_vim_dir
+  "add g:my_vim_dir\after to the end of the runtimepath
+  execute "set rtp+=".g:my_vim_dir."\\after"
+  "Note, pathogen#infect() looks for the 'bundle' folder in each path
+  "of the &rtp, where the last dir in the '&rtp path' is not 'after'. The
+  "<path>\bundle\*\after folders will be added if and only if
+  "the corresponding <path>\after folder is in the &rtp before
+  "pathogen#infect() is called.  So it is very important to add the above
+  "'after' folder.
+
+  " Not necessary, but I like to cleanup &rtp to use \ instead of /
+  " when on windows machines
+  "let &rtp=substitute(&rtp,"[/]","\\","g")
+  set guifont=IBM\ Plex\ Mono\ Light:h12
+  set fileformats=unix,dos,mac
+  set lines=38 columns=120
+else
+  set guifont=IBM\ Plex\ Mono\ Light:h16
+  set term=xterm-256color-italic  " See <https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/>
+endif
+
 " Autoload plugins in ~/.vim/bundle/
 execute pathogen#infect()
 
@@ -18,15 +46,14 @@ endif
 " -----------------------
 filetype plugin indent on
 syntax on
-set guifont=IBM\ Plex\ Mono\ Light:h16
+
 let g:onedark_terminal_italics=1
 colorscheme onedark         " This line has to come *after* any theme option settings
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
-set term=xterm-256color-italic  " See <https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/>
+
 set termencoding=utf-8
-"set lines=35 columns=150
 set colorcolumn=100
 set number                  " Shows line numbers
 
