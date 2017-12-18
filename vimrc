@@ -1,20 +1,34 @@
 " Autoload plugins in ~/.vim/bundle/
 execute pathogen#infect()
 
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"Added per Installation instructions: <https://github.com/joshdick/onedark.vim#installation>
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 " Basic Display Options
 " -----------------------
 filetype plugin indent on
 syntax on
 set guifont=IBM\ Plex\ Mono\ Light:h16
-colorscheme onedark
+let g:onedark_terminal_italics=1
+colorscheme onedark         " This line has to come *after* any theme option settings
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
-set term=xterm-256color
+set term=xterm-256color-italic  " See <https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/>
 set termencoding=utf-8
 "set lines=35 columns=150
 set colorcolumn=100
-set number              " Shows line numbers
+set number                  " Shows line numbers
 
 " Common Shortcuts
 " -----------------------
@@ -50,11 +64,11 @@ augroup configgroup
     autocmd BufEnter Makefile setlocal noexpandtab
     "au! BufRead,BufNewFile *.markdown set filetype=mkd
     "au! BufRead,BufNewFile *.md       set filetype=mkd
-    autocmd FileType markdown,mkd call pencil#init()
-    "autocmd FileType markdown setlocal textwidth=100
+    autocmd FileType markdown,mkd call pencil#init({'wrap': 'hard', 'textwidth': 100})
+    autocmd FileType markdown setlocal textwidth=100
     "autocmd FileType markdown setlocal wrapmargin=0  " textwidth overrides wrapmargin anyway
-    "autocmd FileType markdown setlocal wrap         "word wrap visually (don't affect buffer)
-    "autocmd FileType markdown setlocal linebreak    "only wrap on word-break chars
+    autocmd FileType markdown setlocal wrap         "word wrap visually (don't affect buffer)
+    autocmd FileType markdown setlocal linebreak    "only wrap on word-break chars
     " autocmd FileType markdown setlocal nonumber
 augroup END
 
@@ -65,7 +79,7 @@ set noshowmode          " --INSERT-- unnecessary since LightLine displays mode
 set signcolumn=yes      " always display gitgutter column (prevents weird mvmt)
 set updatetime=250      " Shorten to 250msec from default 4 sec (for gitgutter)
 
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+"let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 let g:pencil#textwidth = 100
 
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
