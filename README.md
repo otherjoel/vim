@@ -23,11 +23,15 @@ In making my `vimrc` I consulted these sources:
 
 ## Plugins added via git submodule
 
-    $ git submodule add git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/gitgutter
-    $ git submodule add https://github.com/itchyny/lightline.vim.git ~/.vim/bundle/lightline
-    $ git submodule add https://github.com/wlangstroth/vim-racket.git ~/.vim/bundle/vim-racket
-    $ git submodule add https://github.com/screwloose/nerdtree.git ~/.vim/bundle/nerdtree
-    $ git submodule add https://github.com/eedes/vim-pencil.git ~/.vim/bundle/vim-pencil
+Very important that when adding a submodule you do it from the root of your repo and use relative
+paths.
+
+    $ git submodule add git://github.com/airblade/vim-gitgutter.git bundle/gitgutter
+    $ git submodule add https://github.com/itchyny/lightline.vim.git bundle/lightline
+    $ git submodule add https://github.com/itchyny/vim-gitbranch.git bundle/vim-gitbranch
+    $ git submodule add https://github.com/wlangstroth/vim-racket.git bundle/vim-racket
+    $ git submodule add https://github.com/screwloose/nerdtree.git bundle/nerdtree
+    $ git submodule add https://github.com/eedes/vim-pencil.git bundle/vim-pencil
 
 ## Windows setup
 
