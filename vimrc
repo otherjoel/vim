@@ -86,17 +86,22 @@ set wildmenu            " provides graphical menu of autocomplete matches for co
 
 " Auto commands
 " -----------------------
+function! Prose()
+    if &filetype != "pollen"
+        call pencil#init()
+    endif
+    setlocal wrap         "word wrap visually (don't affect buffer)
+    setlocal linebreak    "only wrap on word-break chars
+endfunction
+
 augroup configgroup
     autocmd!
     autocmd BufEnter Makefile setlocal noexpandtab
-    "au! BufRead,BufNewFile *.markdown set filetype=mkd
-    "au! BufRead,BufNewFile *.md       set filetype=mkd
-    autocmd FileType markdown,mkd call pencil#init({'wrap': 'hard', 'textwidth': 100})
-    autocmd FileType markdown setlocal textwidth=100
-    "autocmd FileType markdown setlocal wrapmargin=0  " textwidth overrides wrapmargin anyway
-    autocmd FileType markdown setlocal wrap         "word wrap visually (don't affect buffer)
-    autocmd FileType markdown setlocal linebreak    "only wrap on word-break chars
-    " autocmd FileType markdown setlocal nonumber
+    au! BufRead,BufNewFile *.pm    set filetype=pollen
+    au! BufRead,BufNewFile *.ptree set filetype=pollen
+    au! BufRead,BufNewFile *.pp    set filetype=pollen
+    autocmd FileType markdown,mkd call Prose()
+    autocmd FileType pollen call Prose()
 augroup END
 
 " Plugin settings
