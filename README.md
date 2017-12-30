@@ -31,8 +31,12 @@ paths.
     $ git submodule add https://github.com/itchyny/vim-gitbranch.git bundle/vim-gitbranch
     $ git submodule add https://github.com/wlangstroth/vim-racket.git bundle/vim-racket
     $ git submodule add https://github.com/screwloose/nerdtree.git bundle/nerdtree
-    $ git submodule add https://github.com/eedes/vim-pencil.git bundle/vim-pencil
+    $ git submodule add https://github.com/reedes/vim-pencil.git bundle/vim-pencil
     $ git submodule add https://github.com/otherjoel/vim-pollen.git bundle/vim-pollen
+
+To update all submodules to their latest commits:
+
+    $ git submodule update --remote --merge
 
 ## Windows setup
 
