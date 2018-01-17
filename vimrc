@@ -48,7 +48,7 @@ filetype plugin indent on
 syntax on
 
 let g:onedark_terminal_italics=1
-colorscheme onedark         " This line has to come *after* any theme option settings
+colorscheme acme         " This line has to come *after* any theme option settings
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
