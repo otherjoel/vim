@@ -19,6 +19,3 @@
 [submodule "bundle/vim-pollen"]
 	path = bundle/vim-pollen
 	url = https://github.com/otherjoel/vim-pollen.git
-[submodule "bundle/goyo"]
-	path = bundle/goyo
-	url = https://github.com/junegunn/goyo.vim.git
