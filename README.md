@@ -33,6 +33,7 @@ paths.
     $ git submodule add https://github.com/screwloose/nerdtree.git bundle/nerdtree
     $ git submodule add https://github.com/reedes/vim-pencil.git bundle/vim-pencil
     $ git submodule add https://github.com/otherjoel/vim-pollen.git bundle/vim-pollen
+    $ git submodule add https://github.com/junegunn/goyo.vim.git bundle/goyo
 
 To update all submodules to their latest commits:
 
