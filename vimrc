@@ -22,7 +22,7 @@ if has("win16") || has("win32") || has("win64")
   set fileformats=unix,dos,mac
   set lines=38 columns=120
 else
-  set guifont=IBM\ Plex\ Mono\ Light:h16
+  set guifont=IBMPlexMono:h16
   set term=xterm-256color-italic  " See <https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/>
 endif
 
@@ -48,7 +48,7 @@ filetype plugin indent on
 syntax on
 
 let g:onedark_terminal_italics=1
-colorscheme acme         " This line has to come *after* any theme option settings
+colorscheme dark-acme         " This line has to come *after* any theme option settings
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
