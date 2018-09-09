@@ -68,6 +68,26 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Shortcut to open file tree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" Switch to Prose mode
+function! Prose()
+    PencilSoft
+    setlocal wrap
+    setlocal linebreak
+    set colorcolumn=0
+endfunction
+
+function! GoyoOff()
+    Goyo!
+    if b:isprosefile
+        setlocal wrap
+        setlocal linebreak
+    en
+    syn off | syn on    " Syntax needs resetting after exiting Goyo
+endfunction
+
+nmap <leader>p :Goyo 100<CR>
+nmap <leader>o :call GoyoOff()<CR>
+
 set hidden
 set history=100
 set nowrap
@@ -86,12 +106,12 @@ set wildmenu            " provides graphical menu of autocomplete matches for co
 
 " Auto commands
 " -----------------------
-function! Prose()
-    if &filetype != "pollen"
-        call pencil#init()
-    endif
+function! InitProse()
     setlocal wrap         "word wrap visually (don't affect buffer)
     setlocal linebreak    "only wrap on word-break chars
+    PencilSoft
+    set colorcolumn=0
+    let b:isprosefile = 1
 endfunction
 
 augroup configgroup
@@ -100,8 +120,8 @@ augroup configgroup
     au! BufRead,BufNewFile *.pm    set filetype=pollen
     au! BufRead,BufNewFile *.ptree set filetype=pollen
     au! BufRead,BufNewFile *.pp    set filetype=pollen
-    autocmd FileType markdown,mkd call Prose()
-    autocmd FileType pollen call Prose()
+    autocmd FileType markdown,mkd call InitProse()
+    autocmd FileType pollen call InitProse()
 augroup END
 
 " Plugin settings
