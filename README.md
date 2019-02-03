@@ -1,6 +1,6 @@
 # vim configuration on `vinculus`
 
-*Updated 2017-12-17*
+*Updated 2019-02-03*
 
 Config is located in `~/.vim`, with `~.vimrc` symlinked to `~/.vim/vimrc`.
 This folder is a git repo. For detailed change info, consult the git log.
@@ -26,7 +26,9 @@ In making my `vimrc` I consulted these sources:
 Very important that when adding a submodule you do it from the root of your repo and use relative
 paths.
 
-    $ git submodule add git://github.com/airblade/vim-gitgutter.git bundle/gitgutter
+The commands below show how existing submodules were added to this repo. You don’t need to run them again, they are shown for example/documentation purposes only.
+
+    $ git submodule add https://github.com/mhinz/vim-signify.git bundle/vim-signify
     $ git submodule add https://github.com/itchyny/lightline.vim.git bundle/lightline
     $ git submodule add https://github.com/itchyny/vim-gitbranch.git bundle/vim-gitbranch
     $ git submodule add https://github.com/wlangstroth/vim-racket.git bundle/vim-racket
@@ -67,3 +69,11 @@ Set up all submodules:
 	
 
 Modified `vimrc` to include Windows-specific checks (see commit `5ec3756`).
+
+## Known Issues
+
+I am using [Signify](https://github.com/mhinz/vim-signify) in preference to [vim-gitgutter](https://github.com/airblade/vim-gitgutter) because it supports Fossil as well as Git and I use both. However, this multi-VCS support is not without its quirks:
+
+* As currently configured, the Signify plugin only updates when the buffer is saved. There is an option to have it update continuously, but this setting has the side-effect of auto-saving the buffer after every change. There is some discussion of this in [their GitHub issue #261](https://github.com/mhinz/vim-signify/issues/261).
+
+* Signify also has a problem with not showing markers for deleted lines when working inside a Fossil checkout. I have [opened issue #282](https://github.com/mhinz/vim-signify/issues/282) regarding this problem.

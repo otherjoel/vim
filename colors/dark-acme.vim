@@ -20,6 +20,11 @@ highlight! Cursor guibg=#61afef guifg=#282c34 ctermbg=75 ctermfg=230
 highlight! Search guibg=#e5c07b guifg=#282c34 ctermbg=222 ctermfg=232
 highlight! IncSearch guibg=#e5c07b guifg=#282c34 ctermbg=222 ctermfg=232
 
+highlight SignifySignAdd gui=bold guifg=#98c379 guibg=bg cterm=bold ctermbg=none ctermfg=119
+highlight SignifySignDelete gui=bold guifg=#be5046 guibg=bg cterm=bold ctermbg=none ctermfg=167
+highlight SignifySignChange gui=bold guifg=#c678dd guibg=bg cterm=bold ctermbg=none ctermfg=227
+highlight SignColumn gui=bold ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+
 highlight! Statement guibg=bg guifg=fg gui=italic ctermbg=bg ctermfg=fg cterm=italic
 highlight! Identifier guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! Type guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold

@@ -128,8 +128,13 @@ augroup END
 " -----------------------
 set laststatus=2        " correct display of LightLine status bar
 set noshowmode          " --INSERT-- unnecessary since LightLine displays mode
-set signcolumn=yes      " always display gitgutter column (prevents weird mvmt)
+set signcolumn=yes      " always display VCS gutter column (prevents weird mvmt)
 set updatetime=250      " Shorten to 250msec from default 4 sec (for gitgutter)
+
+" Signify plugin (replaces gitgutter since it supports Fossil too)
+let g:signify_vcs_list = [ 'git', 'fossil' ]
+let g:signify_realtime = 0                   " realtime=1 results in continuous autosave!
+let g:signify_sign_change = '~'
 
 "let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 let g:pencil#textwidth = 100
