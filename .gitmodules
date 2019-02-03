@@ -1,9 +1,6 @@
 [submodule "bundle/lightline"]
 	path = bundle/lightline
 	url = https://github.com/itchyny/lightline.vim.git
-[submodule "bundle/gitgutter"]
-	path = bundle/gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-racket"]
 	path = bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket.git
