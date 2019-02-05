@@ -76,4 +76,3 @@ I am using [Signify](https://github.com/mhinz/vim-signify) in preference to [vim
 
 * As currently configured, the Signify plugin only updates when the buffer is saved. There is an option to have it update continuously, but this setting has the side-effect of auto-saving the buffer after every change. There is some discussion of this in [their GitHub issue #261](https://github.com/mhinz/vim-signify/issues/261).
 
-* Signify also has a problem with not showing markers for deleted lines when working inside a Fossil checkout. I have [opened issue #282](https://github.com/mhinz/vim-signify/issues/282) regarding this problem.
