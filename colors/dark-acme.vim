@@ -19,6 +19,7 @@ highlight! CursorLineNr guibg=#2c323c guifg=#5c6370 ctermbg=230 ctermfg=fg
 highlight! Cursor guibg=#61afef guifg=#282c34 ctermbg=75 ctermfg=230
 highlight! Search guibg=#e5c07b guifg=#282c34 ctermbg=222 ctermfg=232
 highlight! IncSearch guibg=#e5c07b guifg=#282c34 ctermbg=222 ctermfg=232
+highlight! ColorColumn guibg=#333750 ctermbg=61
 
 highlight SignifySignAdd gui=bold guifg=#98c379 guibg=bg cterm=bold ctermbg=none ctermfg=119
 highlight SignifySignDelete gui=bold guifg=#be5046 guibg=bg cterm=bold ctermbg=none ctermfg=167
