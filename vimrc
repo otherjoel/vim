@@ -68,6 +68,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Shortcut to open file tree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" Shortcut to hard-wrap current paragraph
+nmap <leader>w gq}
+
 " Switch to Prose mode
 function! Prose()
     PencilSoft
@@ -103,6 +106,7 @@ set showmatch           " highlight matching [{()}]
 
 set cursorline          " highlights the current line
 set wildmenu            " provides graphical menu of autocomplete matches for commands
+set textwidth=100       " only used when manually re-wrapping lines
 
 " Auto commands
 " -----------------------
@@ -111,6 +115,7 @@ function! InitProse()
     setlocal linebreak    "only wrap on word-break chars
     PencilSoft
     set colorcolumn=0
+    set textwidth=100
     let b:isprosefile = 1
 endfunction
 
@@ -120,8 +125,10 @@ augroup configgroup
     au! BufRead,BufNewFile *.pm    set filetype=pollen
     au! BufRead,BufNewFile *.ptree set filetype=pollen
     au! BufRead,BufNewFile *.pp    set filetype=pollen
+    au! BufRead,BufNewFile *.scrbl set filetype=scribble
     autocmd FileType markdown,mkd call InitProse()
     autocmd FileType pollen call InitProse()
+    autocmd FileType scribble call InitProse()
 augroup END
 
 " Plugin settings
