@@ -1,20 +1,27 @@
 # vim configuration on `vinculus`
 
-*Updated 2019-02-03*
+*Updated 2020-02-22*
 
 Config is located in `~/.vim`, with `~.vimrc` symlinked to `~/.vim/vimrc`.
 This folder is a git repo. For detailed change info, consult the git log.
 Both terminal and MacVim use this config.
 
-In making my `vimrc` I consulted these sources:
+## Features
 
-* <http://marcgg.com/blog/2016/03/01/vimrc-example/> (read Dec 2017)
-* <https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x> (read Dec 2017)
-* <https://dougblack.io/words/a-good-vimrc.html> (read Dec 2017)
-* <https://www.reddit.com/r/vim/wiki/tabstop> (read Dec 2017)
-* <https://www.swamphogg.com/2015/vim-setup/> (read Dec 2017)
+For Markdown, Pollen and Scribble files, turns on “Pencil” plugin to automatically hard- or
+soft-wrap lines and reflow paragraphs.
+
+## Shortcuts
+
+* `\p` — distraction free “prose” mode (via Goyo)
+* `\o` — turn off distraction free mode
+* `\l` — Light theme (acme)
+* `\d` — Dark theme (onedark)
+* `\f` — Toggle font between Courier Prime and IBM Plex Mono (doesn’t work under Windows yet)
 
 ## Custom application icon
+
+I don’t really use this anymore since it has to be done every time you update the app.
 
 1. Downloaded custom icon from repo at <https://github.com/jordwalke/VimBox>
 2. In Finder, open `/usr/local/Cellar`
@@ -26,7 +33,8 @@ In making my `vimrc` I consulted these sources:
 Very important that when adding a submodule you do it from the root of your repo and use relative
 paths.
 
-The commands below show how existing submodules were added to this repo. You don’t need to run them again, they are shown for example/documentation purposes only.
+The commands below show how existing submodules were added to this repo. You don’t need to run them
+again, they are shown for example/documentation purposes only.
 
     $ git submodule add https://github.com/mhinz/vim-signify.git bundle/vim-signify
     $ git submodule add https://github.com/itchyny/lightline.vim.git bundle/lightline
@@ -69,6 +77,16 @@ Set up all submodules:
 	
 
 Modified `vimrc` to include Windows-specific checks (see commit `5ec3756`).
+
+## Resources
+
+In making my `vimrc` I consulted these sources:
+
+* <http://marcgg.com/blog/2016/03/01/vimrc-example/> (read Dec 2017)
+* <https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x> (read Dec 2017)
+* <https://dougblack.io/words/a-good-vimrc.html> (read Dec 2017)
+* <https://www.reddit.com/r/vim/wiki/tabstop> (read Dec 2017)
+* <https://www.swamphogg.com/2015/vim-setup/> (read Dec 2017)
 
 ## Known Issues
 
