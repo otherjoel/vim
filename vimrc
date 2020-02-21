@@ -48,10 +48,12 @@ filetype plugin indent on
 syntax on
 
 let g:onedark_terminal_italics=1
-colorscheme dark-acme         " This line has to come *after* any theme option settings
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
+
+" Other options: dark-acme, onedark
+colorscheme acme         " For onedark, this line must come *after* any theme option settings
 
 set termencoding=utf-8
 set colorcolumn=100
@@ -71,25 +73,32 @@ nmap <leader>n :NERDTreeToggle<CR>
 " Shortcut to hard-wrap current paragraph
 nmap <leader>w gq}
 
-" Switch to Prose mode
-function! Prose()
-    PencilSoft
-    setlocal wrap
-    setlocal linebreak
-    set colorcolumn=0
-endfunction
-
 function! GoyoOff()
     Goyo!
-    if b:isprosefile
-        setlocal wrap
-        setlocal linebreak
-    en
     syn off | syn on    " Syntax needs resetting after exiting Goyo
 endfunction
 
-nmap <leader>p :Goyo 100<CR>
+nmap <leader>p :Goyo 106<CR>
 nmap <leader>o :call GoyoOff()<CR>
+
+nmap <leader>d :colorscheme onedark<CR>
+nmap <leader>l :colorscheme acme<CR>
+
+let s:curfontflag = 1
+function! ToggleGUIFont()
+    if has('gui_running')
+        if s:curfontflag == 1
+            set guifont=CourierPrime:h16
+            let s:curfontflag = 0
+        else
+            set guifont=IBMPlexMono:h16
+            let s:curfontflag = 1
+        endif
+    endif
+endfunction
+command! ToggleGUIFont call ToggleGUIFont()
+
+nmap <leader>f :ToggleGUIFont<CR>
 
 set hidden
 set history=100
@@ -111,11 +120,7 @@ set textwidth=100       " only used when manually re-wrapping lines
 " Auto commands
 " -----------------------
 function! InitProse()
-    setlocal wrap         "word wrap visually (don't affect buffer)
-    setlocal linebreak    "only wrap on word-break chars
-    PencilSoft
-    set colorcolumn=0
-    set textwidth=100
+    Pencil
     let b:isprosefile = 1
 endfunction
 
@@ -126,6 +131,7 @@ augroup configgroup
     au! BufRead,BufNewFile *.ptree set filetype=pollen
     au! BufRead,BufNewFile *.pp    set filetype=pollen
     au! BufRead,BufNewFile *.scrbl set filetype=scribble
+    au! BufRead,BufNewFile *.rktd  set filetype=racket
     autocmd FileType markdown,mkd call InitProse()
     autocmd FileType pollen call InitProse()
     autocmd FileType scribble call InitProse()
