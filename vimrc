@@ -22,7 +22,7 @@ if has("win16") || has("win32") || has("win64")
   set fileformats=unix,dos,mac
   set lines=38 columns=120
 else
-  set guifont=IBMPlexMono:h16
+  set guifont=SF-Mono-Powerline-Regular:h18
   set term=xterm-256color-italic  " See <https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/>
 endif
 
@@ -88,10 +88,10 @@ let s:curfontflag = 1
 function! ToggleGUIFont()
     if has('gui_running')
         if s:curfontflag == 1
-            set guifont=CourierPrime:h16
+            set guifont=TriplicateARegular:h18
             let s:curfontflag = 0
         else
-            set guifont=IBMPlexMono:h16
+            set guifont=SF-Mono-Powerline-Regular:h18
             let s:curfontflag = 1
         endif
     endif
