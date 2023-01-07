@@ -117,13 +117,6 @@ set cursorline          " highlights the current line
 set wildmenu            " provides graphical menu of autocomplete matches for commands
 set textwidth=100       " only used when manually re-wrapping lines
 
-" Auto commands
-" -----------------------
-function! InitProse()
-    Pencil
-    let b:isprosefile = 1
-endfunction
-
 augroup configgroup
     autocmd!
     autocmd BufEnter Makefile setlocal noexpandtab
@@ -132,9 +125,6 @@ augroup configgroup
     au! BufRead,BufNewFile *.pp    set filetype=pollen
     au! BufRead,BufNewFile *.scrbl set filetype=scribble
     au! BufRead,BufNewFile *.rktd  set filetype=racket
-    autocmd FileType markdown,mkd call InitProse()
-    autocmd FileType pollen call InitProse()
-    autocmd FileType scribble call InitProse()
 augroup END
 
 " Plugin settings
@@ -148,9 +138,6 @@ set updatetime=250      " Shorten to 250msec from default 4 sec (for gitgutter)
 let g:signify_vcs_list = [ 'git', 'fossil' ]
 let g:signify_realtime = 0                   " realtime=1 results in continuous autosave!
 let g:signify_sign_change = '~'
-
-"let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-let g:pencil#textwidth = 100
 
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 let NERDTreeShowHidden=1 " Show hidden files
