@@ -134,6 +134,10 @@ set noshowmode          " --INSERT-- unnecessary since LightLine displays mode
 set signcolumn=yes      " always display VCS gutter column (prevents weird mvmt)
 set updatetime=250      " Shorten to 250msec from default 4 sec (for gitgutter)
 
+let g:markdown_enable_spell_checking = 0
+let g:markdown_enable_conceal = 0
+let g:markdown_include_jekyll_support = 0
+
 " Signify plugin (replaces gitgutter since it supports Fossil too)
 let g:signify_vcs_list = [ 'git', 'fossil' ]
 let g:signify_realtime = 0                   " realtime=1 results in continuous autosave!
