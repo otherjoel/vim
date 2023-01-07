@@ -71,7 +71,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
 " Shortcut to hard-wrap current paragraph
-nmap <leader>w gq}
+nmap <leader>w {gq}
 
 function! GoyoOff()
     Goyo!
