@@ -52,8 +52,8 @@ let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
 
-" Other options: dark-acme, onedark
-colorscheme acme         " For onedark, this line must come *after* any theme option settings
+" Other options: acme, dark-acme, onedark
+colorscheme earl-grey  " For onedark, this line must come *after* any theme option settings
 
 set termencoding=utf-8
 set colorcolumn=100
@@ -103,8 +103,37 @@ endfunction
 nmap <leader>p :Goyo 106<CR>
 nmap <leader>o :call GoyoOff()<CR>
 
-nmap <leader>d :colorscheme onedark<CR>
-nmap <leader>l :colorscheme acme<CR>
+let g:light_theme = 'earl-grey'
+let g:dark_theme = 'rosepine'
+
+function! DarkTheme()
+    execute 'hi clear'
+    execute 'colorscheme ' . g:dark_theme
+    set background=dark
+    let g:lightline.colorscheme = 'rosepine_moon'
+    
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+    redraw!
+endfunc 
+
+function! LightTheme()
+    execute 'hi clear'
+    execute 'colorscheme ' . g:light_theme
+    let g:lightline.colorscheme = 'rosepine'
+    
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+    redraw!
+endfunc 
+
+nmap <leader>d :call DarkTheme()<CR>
+nmap <leader>l :call LightTheme()<CR>
+
+"nmap <leader>d :colorscheme rosepine<CR>
+"nmap <leader>l :colorscheme earl-grey<CR>
 
 let s:curfontflag = 1
 function! ToggleGUIFont()
@@ -176,4 +205,5 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
       \ },
+      \ 'colorscheme': 'rosepine',
       \ }
